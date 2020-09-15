@@ -40,19 +40,18 @@ public class MediaPagerAdapter extends PagerAdapter {
         Log.d("yyyyy", "instantiateItem: " + position);
 
 
-        ImagesAdapter imagesAdapter = new ImagesAdapter(listImages);
-        binding.rvImages.setAdapter(imagesAdapter);
-      /*
         if (position == 0) {
-            VideoAdapter imagesAdapter1 = new VideoAdapter(listVideos);
-            binding.rvImages.setAdapter(imagesAdapter1);
-            Log.d("yyyyy", "instantiateItem: video" + position);
-        } else {
-
             ImagesAdapter imagesAdapter = new ImagesAdapter(listImages);
             binding.rvImages.setAdapter(imagesAdapter);
             Log.d("yyyyy", "instantiateItem: images" + position);
-        }*/
+        } else {
+            ImagesAdapter imagesAdapter = new ImagesAdapter(listImages);
+            binding.rvImages.setAdapter(imagesAdapter);
+            VideoAdapter imagesAdapter1 = new VideoAdapter(listVideos);
+            // binding.rvImages.setAdapter(imagesAdapter1);
+            Log.d("yyyyy", "instantiateItem: video" + position);
+
+        }
 
         container.addView(binding.getRoot());
         return binding.getRoot();
@@ -61,7 +60,7 @@ public class MediaPagerAdapter extends PagerAdapter {
 
     @Override
     public int getCount() {
-        return 3;
+        return 2;
     }
 
     @Override
