@@ -112,7 +112,7 @@ public class CamaraFragment extends Fragment implements View.OnTouchListener {
                 Log.d(TAG, "File not found: " + e.getMessage());
             } catch (IOException e) {
                 Log.d(TAG, "Error accessing file: " + e.getMessage());
-            }
+            } //tt
         }
     };
 
