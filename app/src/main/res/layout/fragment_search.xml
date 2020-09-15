@@ -15,14 +15,19 @@
         <!-- TODO: Update blank fragment layout -->
         <androidx.cardview.widget.CardView
             android:id="@+id/cardview_search"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="20dp"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
             app:cardCornerRadius="5dp">
 
-            <EditText
-                android:layout_width="250dp"
+            <TextView
+                android:id="@+id/etSearch"
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:paddingHorizontal="20dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="7dp"
                 android:layout_marginLeft="7dp"

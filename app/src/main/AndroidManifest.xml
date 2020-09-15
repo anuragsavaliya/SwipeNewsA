@@ -13,7 +13,6 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />
@@ -28,6 +27,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".Activites.SearchActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".Activites.AudioRecordActivity" />
         <activity
             android:name=".Activites.SettingsActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />

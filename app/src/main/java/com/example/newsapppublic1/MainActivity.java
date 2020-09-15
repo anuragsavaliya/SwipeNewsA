@@ -1,5 +1,7 @@
 package com.example.newsapppublic1;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -10,6 +12,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.newsapppublic1.Activites.AudioRecordActivity;
 import com.example.newsapppublic1.Fragments.CamaraFragment;
 import com.example.newsapppublic1.Fragments.HomeFragment;
 import com.example.newsapppublic1.Fragments.NotificationFragment;
@@ -22,11 +25,13 @@ import com.google.firebase.FirebaseApp;
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
     ActivityMainBinding binding;
+    private Context contex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        contex = this;
         FirebaseApp.initializeApp(this);
         init();
         navItemeControl();
@@ -56,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.action_notfication:
                         fragment = new NotificationFragment();
                         loadFragment(fragment);
+                        startActivity(new Intent(contex, AudioRecordActivity.class));
                         break;
                     case R.id.action_profile:
                         fragment = new ProfileFragment();

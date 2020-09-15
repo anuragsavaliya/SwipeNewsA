@@ -1,5 +1,6 @@
 package com.example.newsapppublic1.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
+import com.example.newsapppublic1.Activites.SearchActivity;
 import com.example.newsapppublic1.Adapters.HeshtagsAdapter;
 import com.example.newsapppublic1.Adapters.TrandingPostAdapter;
 import com.example.newsapppublic1.Adapters.UsersAdapter;
@@ -26,7 +28,7 @@ public class SearchFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_search, container, false);
@@ -36,6 +38,13 @@ public class SearchFragment extends Fragment {
         binding.rvUsers.setAdapter(usersAdapter);
         TrandingPostAdapter trandingPostAdapter = new TrandingPostAdapter();
         binding.rvTrandingpost.setAdapter(trandingPostAdapter);
+
+        binding.etSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(container.getContext(), SearchActivity.class));
+            }
+        });
         return binding.getRoot();
     }
 }

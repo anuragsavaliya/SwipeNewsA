@@ -77,6 +77,8 @@ public class CamaraFragment extends Fragment implements View.OnTouchListener {
     private CameraPreview mPreview;
     private MediaRecorder mediaRecorder;
     private boolean isRecording = false;
+    private int imgHeight;
+    private int imgWidth;
     private Camera.PictureCallback mPicture = new Camera.PictureCallback() {
 
         @Override
@@ -103,8 +105,9 @@ public class CamaraFragment extends Fragment implements View.OnTouchListener {
                 //  imageView.setImageURI(Uri.parse(pictureFile.getPath()));
 
                 Bitmap thumbImage = ThumbnailUtils.extractThumbnail(
-                        BitmapFactory.decodeFile(pictureFile.getAbsolutePath()), 2000, 2000);
+                        BitmapFactory.decodeFile(pictureFile.getAbsolutePath()), imgWidth, imgHeight);
                 imageView.setImageBitmap(thumbImage);
+
             } catch (FileNotFoundException e) {
                 Log.d(TAG, "File not found: " + e.getMessage());
             } catch (IOException e) {
@@ -273,6 +276,9 @@ public class CamaraFragment extends Fragment implements View.OnTouchListener {
                 size = sizes.get(i);
         }
         params.setPictureSize(size.width, size.height);
+        imgHeight = size.height;
+        imgWidth = size.width;
+
 
         if (flashOn) {
             params.setFlashMode(Camera.Parameters.FLASH_MODE_ON);
