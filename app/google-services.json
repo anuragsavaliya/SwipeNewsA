@@ -1,0 +1,77 @@
+{
+  "project_info": {
+    "project_number": "596311732060",
+    "firebase_url": "https://news-67214.firebaseio.com",
+    "project_id": "news-67214",
+    "storage_bucket": "news-67214.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:596311732060:android:51542da122178ed8f79b99",
+        "android_client_info": {
+          "package_name": "com.example.newsapppublic1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "596311732060-83anf6j5v8k9ukl0391a85cm9m2c2luu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZxh5IaWUArzcY9f2guGRKRAEUDw9Yszo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "596311732060-83anf6j5v8k9ukl0391a85cm9m2c2luu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:596311732060:android:f0b57d9976d328caf79b99",
+        "android_client_info": {
+          "package_name": "com.example.swipenewsnewa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "596311732060-o88t595nrndccj8oh5vi4f41n63gff17.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.swipenewsnewa",
+            "certificate_hash": "23fe8be487734704b338faea10c71ac01f87bf9e"
+          }
+        },
+        {
+          "client_id": "596311732060-83anf6j5v8k9ukl0391a85cm9m2c2luu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZxh5IaWUArzcY9f2guGRKRAEUDw9Yszo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "596311732060-83anf6j5v8k9ukl0391a85cm9m2c2luu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

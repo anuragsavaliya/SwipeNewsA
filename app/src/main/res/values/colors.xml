@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="black">#000000</color>
+    <color name="colorSliderBackground">#F44336</color>
+    <color name="colorSwitchColor">#3F51B5</color>
+    <color name="colorTextColor">#FFFFFF</color>
+    <color name="colorpink">#D10846</color>
+    <color name="lightgray">#68EFEFEF</color>
+    <color name="blacklight">#4E4E4E</color>
+    <color name="colorred">#8B0000</color>
+    <color name="graylight">#818181</color>
+
+</resources>
