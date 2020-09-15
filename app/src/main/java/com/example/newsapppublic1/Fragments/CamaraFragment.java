@@ -181,6 +181,8 @@ public class CamaraFragment extends Fragment implements View.OnTouchListener {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_camara, container, false);
         listImages = getAllImages();
         listVideos = getAllVideos();
+        Log.d(TAG, "onCreateView:vid " + listVideos.size());
+        Log.d(TAG, "onCreateView:image " + listImages.size());
         status = "";
         initView();
         flash();
@@ -304,6 +306,7 @@ public class CamaraFragment extends Fragment implements View.OnTouchListener {
                 oprnBottomSheet();
             }
         });
+
         mCamera.setZoomChangeListener(new Camera.OnZoomChangeListener() {
             @Override
             public void onZoomChange(int i, boolean b, Camera camera) {
@@ -400,7 +403,7 @@ public class CamaraFragment extends Fragment implements View.OnTouchListener {
     private ArrayList<Videofacer> getAllVideos() {
         Uri allImagesuri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
         ArrayList<Videofacer> videos = new ArrayList<>();
-        Uri allVideosuri = android.provider.MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
+        Uri allVideosuri1 = android.provider.MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
         String[] projection = {MediaStore.Video.VideoColumns.DATA, MediaStore.Video.Media.DISPLAY_NAME,
                 MediaStore.Images.Media.SIZE, MediaStore.Video.Thumbnails.DATA, MediaStore.Video.Media._ID};
         Cursor cursor = getActivity().getContentResolver().query(allImagesuri, projection, null, null, null);
@@ -417,7 +420,7 @@ public class CamaraFragment extends Fragment implements View.OnTouchListener {
                 String thumburi = getthumburi(cursor.getInt(cursor.getColumnIndexOrThrow(MediaStore.Video.Media._ID)));
                 String thumburifinel = null;
                 try {
-                    Log.d("iiiith3", thumburi.toString());
+
                     thumburifinel = thumburi;
                 } catch (Exception o) {
                     Log.d("iiiie207", o.toString());
@@ -426,7 +429,7 @@ public class CamaraFragment extends Fragment implements View.OnTouchListener {
                 pic.setThumbPath(thumburifinel);
 
                 videos.add(pic);
-                Log.d(TAG, "getAllVideos: " + videos.size());
+
             } while (cursor.moveToNext());
             cursor.close();
             ArrayList<Videofacer> reSelection = new ArrayList<>();
@@ -438,6 +441,7 @@ public class CamaraFragment extends Fragment implements View.OnTouchListener {
             e.printStackTrace();
             Log.d("iiiie222", e.toString());
         }
+        Log.d(TAG, "getAllVideos: " + videos.size());
         return videos;
     }
 /*
@@ -454,10 +458,10 @@ public class CamaraFragment extends Fragment implements View.OnTouchListener {
                 c.moveToFirst();
             }
             do {
-                s = c.getString(c.getColumnIndexOrThrow(MediaStore.Video.Thumbnails.DATA));
-                String id = c.getString(c.getColumnIndexOrThrow(MediaStore.Video.Thumbnails._ID));
-                String vid = c.getString(c.getColumnIndexOrThrow(MediaStore.Video.Thumbnails.VIDEO_ID));
-                String vid2 = c.getString(c.getColumnIndexOrThrow(MediaStore.Video.Media._ID));
+                s = c.getString(c.getColumnIndexOrThrow(MediaStore.Images.Thumbnails.DATA));
+                String id = c.getString(c.getColumnIndexOrThrow(MediaStore.Images.Thumbnails._ID));
+                String vid = c.getString(c.getColumnIndexOrThrow(MediaStore.Images.Thumbnails.IMAGE_ID));
+                String vid2 = c.getString(c.getColumnIndexOrThrow(MediaStore.Images.Media._ID));
                 Log.d("kkthumbpath",s.toString());
                 Log.d("kkthumbid",id.toString());
                 Log.d("kkthumbvidid",vid.toString());
@@ -491,10 +495,7 @@ public class CamaraFragment extends Fragment implements View.OnTouchListener {
                 String id = c.getString(c.getColumnIndexOrThrow(MediaStore.Video.Thumbnails._ID));
                 String vid = c.getString(c.getColumnIndexOrThrow(MediaStore.Video.Thumbnails.VIDEO_ID));
                 String vid2 = c.getString(c.getColumnIndexOrThrow(MediaStore.Video.Media._ID));
-                Log.d("kkthumbpath", s.toString());
-                Log.d("kkthumbid", id.toString());
-                Log.d("kkthumbvidid", vid.toString());
-                Log.d("kkvididfromthumb", vid2.toString());
+
 
             } while (c.moveToNext());
             c.close();
@@ -522,7 +523,7 @@ public class CamaraFragment extends Fragment implements View.OnTouchListener {
                 pic.setPicturePath(cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)));
 
 
-            /*    String thumburi=getthumburiImage(cursor.getInt(cursor.getColumnIndexOrThrow(MediaStore.Images.Media._ID)));
+           /*     String thumburi=getthumburiImage(cursor.getInt(cursor.getColumnIndexOrThrow(MediaStore.Images.Media._ID)));
                 String thumburifinel=null;
                 try {
                     Log.d("imgiiiith3",thumburi.toString());
@@ -531,8 +532,7 @@ public class CamaraFragment extends Fragment implements View.OnTouchListener {
                     Log.d("imgiiiie207",o.toString());
                     thumburifinel="null";
                 }
-                pic.setThumbPath(thumburifinel);
-*/
+                pic.setThumbPath(thumburifinel);*/
 
                 images.add(pic);
                 Log.d(TAG, "imgoprnBottomSheet: " + images.size());
@@ -547,6 +547,7 @@ public class CamaraFragment extends Fragment implements View.OnTouchListener {
             Log.d(TAG, "imgoprnBottomSheet: error " + e);
             e.printStackTrace();
         }
+        Log.d(TAG, "getAllVideos:image " + images.size());
         return images;
     }
 
