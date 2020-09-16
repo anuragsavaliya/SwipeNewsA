@@ -21,7 +21,6 @@ import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -60,7 +59,7 @@ public class CamaraFragment extends Fragment implements View.OnTouchListener {
     FragmentCamaraBinding binding;
     ImageView imageView;
     FrameLayout preview;
-    Button btnretack;
+    ImageView btnretack;
     View captureButton;
     ScaleGestureDetector scaleGestureDetector;
     TextView textView;
@@ -105,7 +104,7 @@ public class CamaraFragment extends Fragment implements View.OnTouchListener {
                 //  imageView.setImageURI(Uri.parse(pictureFile.getPath()));
 
                 Bitmap thumbImage = ThumbnailUtils.extractThumbnail(
-                        BitmapFactory.decodeFile(pictureFile.getAbsolutePath()), imgWidth, imgHeight);
+                        BitmapFactory.decodeFile(pictureFile.getAbsolutePath()), 2000, 2000);
                 imageView.setImageBitmap(thumbImage);
 
             } catch (FileNotFoundException e) {
@@ -345,11 +344,7 @@ public class CamaraFragment extends Fragment implements View.OnTouchListener {
                 captureButton.setVisibility(View.VISIBLE);
                 imageView.setVisibility(View.GONE);
                 preview.setVisibility(View.VISIBLE);
-                mCamera = getCameraInstance();
-                mCamera.setDisplayOrientation(90);
-
-                mPreview = new CameraPreview(getContext(), mCamera);
-                preview.addView(mPreview);
+                initCamara();
 
             }
 
